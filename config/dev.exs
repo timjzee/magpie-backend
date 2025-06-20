@@ -41,8 +41,8 @@ config :phoenix, :stacktrace_depth, 20
 config :phoenix, :plug_init_mode, :runtime
 
 config :magpie, Magpie.Repo,
-  username: System.get_env("MAGPIE_DB_USER") || "postgres",
-  password: System.get_env("MAGPIE_DB_PASSWORD") || "postgres",
+  username: System.get_env("MAGPIE_DB_USER", "postgres"),
+  password: System.get_env("MAGPIE_DB_PASSWORD", "postgres"),
   # This is the current workaround. "db" is the host name for the Docker postgres container. "localhost" when you actually run it with your system's postgres instead of through Docker.
   hostname: System.get_env("MAGPIE_DB_HOST", "localhost"),
   database: "magpie_dev",
