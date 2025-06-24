@@ -7,8 +7,8 @@
 <ul>
 <pre>
 experimentId: '<%= @experiment.id %>',
-serverUrl: '<%=  get_home_url() %>',
-socketUrl: '<%= get_socket_url() %>',</pre>
+serverUrl: 'https://magpie.cls.ru.nl',
+socketUrl: 'wss://magpie.cls.ru.nl/socket',</pre>
 </ul>
 
 <p>
