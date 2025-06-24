@@ -31,7 +31,7 @@ if config_env() == :prod do
   port = String.to_integer(System.get_env("PORT") || "4000")
 
   config :magpie, Magpie.Endpoint,
-    url: [host: host, port: port, scheme: "http"],
+    url: [host: host, scheme: "http"],
     http: [
       # Enable IPv6 and bind on all interfaces.
       # Set it to  {0, 0, 0, 0, 0, 0, 0, 1} for local network only access.
@@ -44,6 +44,9 @@ if config_env() == :prod do
     # Allow clients from anywhere to connect to use the interactive experiment facilities. We can't constrain where the user chooses to host the frontend anyways.
     check_origin: false
 
+  # Only allow requests from our server
+  config :cors_plug,
+    origin: ["https://cls.ru.nl"]
 
   config :logger,
     backends: [:console]
